@@ -30,5 +30,6 @@ Serverless image recognition app built using core AWS services
 ### Ep. 2
 
 - creating lambda fun to interact with the api gateway
+  - using Pillow library for creating thumbnail imgs
 - setting up dynamodb table to interact with the Lambda api Fn
 - creating s3 bucket for thumbnails to be stored after being sent to rekognition
