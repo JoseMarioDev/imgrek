@@ -25,5 +25,6 @@ Serverless image recognition app built using core AWS services
   - add event source
   - grant permissions to imagebucket and tble
   - add IAM policy
+- end of episode - cdk destroy to cleanup
 
 ### Ep. 2
