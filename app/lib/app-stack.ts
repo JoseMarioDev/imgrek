@@ -60,9 +60,11 @@ export class AppStack extends cdk.Stack {
       handler: 'index.handler',
       timeout: Duration.seconds(30),
       memorySize: 1024,
+      layers: [layer],
       environment: {
         TABLE: table.tableName,
         BUCKET: imageBucket.bucketName,
+        RESIZEDBUCKET: resizedBucket.bucketName,
       },
     });
     rekFn.addEventSource(
@@ -71,6 +73,7 @@ export class AppStack extends cdk.Stack {
       }),
     );
     imageBucket.grantRead(rekFn);
+    resizedBucket.grantPut(rekFn);
     table.grantWriteData(rekFn);
 
     rekFn.addToRolePolicy(
@@ -80,5 +83,22 @@ export class AppStack extends cdk.Stack {
         resources: ['*'],
       }),
     );
+
+    // =====================================================================================
+    // Lambda for Synchronous Front End
+    // =====================================================================================
+    const serviceFn = new lambda.Function(this, 'serviceFunction', {
+      code: lambda.Code.fromAsset('servicelambda'),
+      runtime: lambda.Runtime.PYTHON_3_7,
+      handler: 'index.handler',
+      environment: {
+        TABLE: table.tableName,
+        BUCKET: imageBucket.bucketName,
+        RESIZEDBUCKET: resizedBucket.bucketName,
+      },
+    });
+    imageBucket.grantWrite(serviceFn);
+    resizedBucket.grantWrite(serviceFn);
+    table.grantReadWriteData(serviceFn);
   }
 }

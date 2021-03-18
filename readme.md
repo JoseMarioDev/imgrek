@@ -29,7 +29,9 @@ Serverless image recognition app built using core AWS services
 
 ### Ep. 2
 
+- [explanation of sync vs async Lambda functions](https://www.stackery.io/blog/aws-lambda-sync-or-async/)
 - creating lambda fun to interact with the api gateway
   - using Pillow library for creating thumbnail imgs
 - setting up dynamodb table to interact with the Lambda api Fn
 - creating s3 bucket for thumbnails to be stored after being sent to rekognition
+
