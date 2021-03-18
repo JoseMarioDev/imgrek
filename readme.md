@@ -28,3 +28,7 @@ Serverless image recognition app built using core AWS services
 - end of episode - cdk destroy to cleanup
 
 ### Ep. 2
+
+- creating lambda fun to interact with the api gateway
+- setting up dynamodb table to interact with the Lambda api Fn
+- creating s3 bucket for thumbnails to be stored after being sent to rekognition

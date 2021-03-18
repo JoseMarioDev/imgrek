@@ -7,6 +7,7 @@ import event_sources = require('@aws-cdk/aws-lambda-event-sources');
 import { Duration } from '@aws-cdk/core';
 
 const imageBucketName = 'imgrek-imagebucket';
+const resizedBucketName = imageBucketName + '-resized';
 
 export class AppStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -19,6 +20,16 @@ export class AppStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
     new cdk.CfnOutput(this, 'imageBucket', { value: imageBucket.bucketName }); // cloudformation output
+
+    // =====================================================================================
+    // Thumbnail Bucket
+    // =====================================================================================
+    const resizedBucket = new s3.Bucket(this, resizedBucketName, {
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+    new cdk.CfnOutput(this, 'resizedBucket', {
+      value: resizedBucket.bucketName,
+    });
 
     // =====================================================================================
     // Amazon DynamoDB table for storing image labels
