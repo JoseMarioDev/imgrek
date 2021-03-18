@@ -9,3 +9,21 @@ Serverless image recognition app built using core AWS services
 7. Rekognition
 
 ![app architecture](img/imgrek-arch.jpeg)
+
+### Ep. 1
+
+- setup cdk
+- setup S3 image bucket
+  - used for storing the imgs for our app
+  - output to cfn
+- setup DynamoDB
+  - table 'Image'
+  - output to cfn
+- built Lambda function
+  - python runtime
+  - envs: table and imagebucket
+  - add event source
+  - grant permissions to imagebucket and tble
+  - add IAM policy
+
+### Ep. 2
