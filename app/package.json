@@ -22,11 +22,16 @@
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "^1.94.1",
+    "@aws-cdk/aws-applicationautoscaling": "^1.94.1",
+    "@aws-cdk/aws-codeguruprofiler": "^1.94.1",
     "@aws-cdk/aws-dynamodb": "^1.94.1",
+    "@aws-cdk/aws-ecr-assets": "^1.94.1",
     "@aws-cdk/aws-iam": "^1.94.1",
     "@aws-cdk/aws-lambda": "^1.94.1",
     "@aws-cdk/aws-lambda-event-sources": "^1.94.1",
     "@aws-cdk/aws-s3": "^1.94.1",
+    "@aws-cdk/aws-s3-notifications": "^1.94.1",
+    "@aws-cdk/aws-sns-subscriptions": "^1.94.1",
     "@aws-cdk/core": "1.94.1",
     "source-map-support": "^0.5.16"
   }
