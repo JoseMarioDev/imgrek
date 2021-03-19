@@ -35,3 +35,11 @@ Serverless image recognition app built using core AWS services
 - setting up dynamodb table to interact with the Lambda api Fn
 - creating s3 bucket for thumbnails to be stored after being sent to rekognition
 
+### Ep. 3
+
+- API Gateway: REST API
+- /images
+- DELETE
+- GET
+  ![GET arch](img/apiGET.png)
+  ![DELETE arch](img/apiDELETE.png)
