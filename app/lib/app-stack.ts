@@ -5,6 +5,8 @@ import dynamodb = require('@aws-cdk/aws-dynamodb');
 import lambda = require('@aws-cdk/aws-lambda');
 import event_sources = require('@aws-cdk/aws-lambda-event-sources');
 import { Duration } from '@aws-cdk/core';
+import apigw = require('@aws-cdk/aws-apigateway');
+import { PassthroughBehavior } from '@aws-cdk/aws-apigateway';
 
 const imageBucketName = 'imgrek-imagebucket';
 const resizedBucketName = imageBucketName + '-resized';
